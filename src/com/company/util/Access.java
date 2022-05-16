@@ -12,35 +12,77 @@ public class Access{
     LibraryUser libraryUser;
     BookStoreUser bookStoreUser;
     JsonHelper jsonHelper = new JsonHelper();
+    public boolean isLogin = false;
 
     Scanner scanner = new Scanner(System.in);
+
+    public boolean isLogin() {
+        return isLogin;
+    }
+
+    public void setLogin(boolean b){
+        isLogin = b;
+    }
 
     public void login(){
         System.out.print("Enter your Username : ");
         String user = scanner.next();
         System.out.print("Enter your Password : ");
         String ps = scanner.next();
-        AbstractUser abstractUser = jsonHelper.readAccount(user);
 
-        if(abstractUser.getUsername().equals(user)){
-            if(abstractUser.getPassword().equals(ps)){
-                switch (abstractUser.getType()){
-                    case "guest":
-                        guest = new Guest(abstractUser.getUsername(),abstractUser.getPassword());
-                        break;
-                    case "library_user":
-                        libraryUser = new LibraryUser(abstractUser.getUsername(),abstractUser.getPassword());
-                        break;
-                    case "book_store_user":
-                        bookStoreUser = new BookStoreUser(abstractUser.getUsername(),abstractUser.getPassword());
-                        break;
-                }
-                    System.out.println("Login Successfully!");
+        if(jsonHelper.readAccount(user) == null){
+            System.out.println("Wrong Username!");
+            setLogin(false);
 
-            }else{
-                System.out.println("Wrong Password.");
+        }else if(jsonHelper.readAccount(user) instanceof Guest){
+            Guest guest = jsonHelper.readAccount(user);
+            if(loginProcess(guest,user,ps)){
+                this.guest = guest;
+                setLogin(true);
+            }
+        }else if(jsonHelper.readAccount(user) instanceof LibraryUser){
+            LibraryUser libraryUser = jsonHelper.readAccount(user);
+            if(loginProcess(libraryUser,user,ps)){
+                this.libraryUser = libraryUser;
+                setLogin(true);
+            }
+        }else if(jsonHelper.readAccount(user) instanceof BookStoreUser){
+            BookStoreUser bookStoreUser = jsonHelper.readAccount(user);
+            if(loginProcess(bookStoreUser,user,ps)){
+                this.bookStoreUser = bookStoreUser;
+                setLogin(true);
             }
         }
+    }
+
+    public boolean loginProcess(Guest guest,String user,String ps){
+        if(guest.getUsername().equals(user)){
+            if(guest.getPassword().equals(ps)){
+                System.out.println("Login Successfully!");
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean loginProcess(LibraryUser libraryUser,String user,String ps){
+        if(libraryUser.getUsername().equals(user)){
+            if(libraryUser.getPassword().equals(ps)){
+                System.out.println("Login Successfully!");
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean loginProcess(BookStoreUser bookStoreUser,String user,String ps){
+        if(bookStoreUser.getUsername().equals(user)){
+            if(bookStoreUser.getPassword().equals(ps)){
+                System.out.println("Login Successfully!");
+                return true;
+            }
+        }
+        return false;
     }
 
     public void register() {

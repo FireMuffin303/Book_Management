@@ -1,6 +1,9 @@
 package com.company;
 
 import com.company.user.AbstractUser;
+import com.company.user.BookStoreUser;
+import com.company.user.Guest;
+import com.company.user.LibraryUser;
 import com.company.util.Access;
 import com.company.util.BookStorage;
 
@@ -14,21 +17,19 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         do {
-            System.out.println("Login or Register");
-            System.out.print("Enter: ");
-            command = scanner.next();
-            switch (command.toLowerCase()) {
-                case "login":
-                    access.login();
-                    break;
-                case "register":
-                    access.register();
-                    break;
+            while (access.isLogin() == false){
+                System.out.println("Login or Register");
+                System.out.print("Enter: ");
+                command = scanner.next();
+                switch (command.toLowerCase()) {
+                    case "login":
+                        access.login();
+                        break;
+                    case "register":
+                        access.register();
+                        break;
+                }
             }
-        }while (command.equalsIgnoreCase("register"));
-
-
-        do {
             System.out.print("Enter command: ");
             command = scanner.next();
             switch (command.toLowerCase()){
@@ -37,8 +38,33 @@ public class Main {
                     System.out.printf("AccountType : %s\n",access.getAccount().getType());
                     break;
                 case "addbook":
-                    bookStorage.addBook(access.getAccount());
-
+                    switch (access.getAccount().getType()){
+                        case "guest":
+                            bookStorage.addBook((Guest) access.getAccount());
+                            break;
+                        case "library_user":
+                            bookStorage.addBook((LibraryUser) access.getAccount());
+                            break;
+                        case "book_store_user":
+                            bookStorage.addBook((BookStoreUser) access.getAccount());
+                            break;
+                    }
+                    break;
+                case "showbooks":
+                    switch (access.getAccount().getType()){
+                        case "guest":
+                            bookStorage.showBooks((Guest) access.getAccount());
+                            break;
+                        case "library_user":
+                            bookStorage.showBooks((LibraryUser) access.getAccount());
+                            break;
+                        case "book_store_user":
+                            bookStorage.showBooks((BookStoreUser) access.getAccount());
+                            break;
+                    }
+                    break;
+                case "logout":
+                    access.setLogin(false);
                     break;
 
             }

@@ -1,5 +1,1 @@
-{
-  "username":"FireMuffin303",
-  "password":"456654",
-  "type":"book_store_user"
-}
+{"storeBook":[{"price":200.0,"sale":0.0,"name":"MoonKnight","desc":"asd","genre":"Marvel","storage":"หน้าคอม","count":5}],"username":"FireMuffin303","password":"456654","type":"book_store_user"}
