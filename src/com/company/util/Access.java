@@ -37,18 +37,24 @@ public class Access{
         }else if(jsonHelper.readAccount(user) instanceof Guest){
             Guest guest = jsonHelper.readAccount(user);
             if(loginProcess(guest,user,ps)){
+                this.libraryUser = null;
+                this.bookStoreUser = null;
                 this.guest = guest;
                 setLogin(true);
             }
         }else if(jsonHelper.readAccount(user) instanceof LibraryUser){
             LibraryUser libraryUser = jsonHelper.readAccount(user);
             if(loginProcess(libraryUser,user,ps)){
+                this.bookStoreUser = null;
+                this.guest = null;
                 this.libraryUser = libraryUser;
                 setLogin(true);
             }
         }else if(jsonHelper.readAccount(user) instanceof BookStoreUser){
             BookStoreUser bookStoreUser = jsonHelper.readAccount(user);
             if(loginProcess(bookStoreUser,user,ps)){
+                this.guest = null;
+                this.libraryUser = null;
                 this.bookStoreUser = bookStoreUser;
                 setLogin(true);
             }

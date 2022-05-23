@@ -7,11 +7,13 @@ import com.company.user.LibraryUser;
 import com.company.util.Access;
 import com.company.util.BookStorage;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String command;
+        String command,search;
         Access access = new Access();
         BookStorage bookStorage = new BookStorage();
         Scanner scanner = new Scanner(System.in);
@@ -38,7 +40,7 @@ public class Main {
                     System.out.printf("AccountType : %s\n",access.getAccount().getType());
                     break;
                 case "addbook":
-                    switch (access.getAccount().getType()){
+                   /* switch (access.getAccount().getType()){
                         case "guest":
                             bookStorage.addBook((Guest) access.getAccount());
                             break;
@@ -48,20 +50,40 @@ public class Main {
                         case "book_store_user":
                             bookStorage.addBook((BookStoreUser) access.getAccount());
                             break;
-                    }
+                    }*/
+                    access.getAccount().addBook();
                     break;
                 case "showbooks":
-                    switch (access.getAccount().getType()){
+                    System.out.print("Search: ");
+                    search = scanner.next();
+                   /* switch (access.getAccount().getType()){
                         case "guest":
-                            bookStorage.showBooks((Guest) access.getAccount());
+                            bookStorage.showBooks((Guest) access.getAccount(),search);
                             break;
                         case "library_user":
-                            bookStorage.showBooks((LibraryUser) access.getAccount());
+                            bookStorage.showBooks((LibraryUser) access.getAccount(),search);
                             break;
                         case "book_store_user":
-                            bookStorage.showBooks((BookStoreUser) access.getAccount());
+                            bookStorage.showBooks((BookStoreUser) access.getAccount(),search);
                             break;
-                    }
+                    }*/
+                    access.getAccount().showBooks(search);
+                    break;
+                case "showbook":
+                    System.out.print("Search: ");
+                    search = scanner.next();
+                    /*switch (access.getAccount().getType()){
+                        case "guest":
+                            bookStorage.showBook(search,(Guest) access.getAccount());
+                            break;
+                        case "library_user":
+                            bookStorage.showBook(search,(LibraryUser) access.getAccount());
+                            break;
+                        case "book_store_user":
+                            bookStorage.showBook(search,(BookStoreUser) access.getAccount());
+                            break;
+                    }*/
+                    access.getAccount().showBook(search);
                     break;
                 case "logout":
                     access.setLogin(false);

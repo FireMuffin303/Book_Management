@@ -1,10 +1,5 @@
 package com.company.books;
 
-import java.awt.desktop.AppReopenedEvent;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class StoreBook extends Book{
     double price,sale;
 
