@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.oopproject.bookmanagementgui.util.controller.EditBookController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="29.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDIT BOOK">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Button onAction="#onClickBack" layoutX="511.0" layoutY="22.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: #FFFFFF00;" text="Back" />
+            <Polygon layoutX="517.0" layoutY="45.0" rotate="270.0" scaleX="0.1" scaleY="0.1" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+               <points>
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="40.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="40.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-60.0" />
+               </points>
+            </Polygon>
+            <TextField fx:id="bookNameTextField" layoutX="132.0" layoutY="82.0" prefHeight="26.0" prefWidth="350.0" promptText="Book name" style="-fx-background-color: #FFFFFF00;" />
+            <Text layoutX="49.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book name" />
+            <Text layoutX="48.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre" />
+            <Text layoutX="51.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desc" />
+            <Text layoutX="47.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Storage" />
+            <Text layoutX="52.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Count" />
+            <Spinner fx:id="spinner" layoutX="133.0" layoutY="290.0" prefHeight="27.0" prefWidth="350.0" style="-fx-border-color: #000000; -fx-background-color: #FFFFFF00;" >
+               <valueFactory>
+                  <SpinnerValueFactory.IntegerSpinnerValueFactory min="1" max="10" />
+               </valueFactory>
+            </Spinner>
+            <TextField fx:id="bookStorageTextField" layoutX="132.0" layoutY="230.0" prefHeight="26.0" prefWidth="349.0" promptText="Storage" style="-fx-background-color: #FFFFFF00;" />
+            <TextField fx:id="bookDescTextField" layoutX="131.0" layoutY="173.0" prefHeight="26.0" prefWidth="350.0" promptText="Desc" style="-fx-background-color: #FFFFFF00;" />
+            <ComboBox fx:id="comboBox" layoutX="132.0" layoutY="133.0" prefHeight="28.0" prefWidth="350.0" promptText="-Select-" style="-fx-background-color: #FFFFFF00; -fx-border-color: #000000;" >
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Action" />
+                     <String fx:value="Adventure"/>
+                     <String fx:value="Drama" />
+                     <String fx:value="Education" />
+                     <String fx:value="Horror" />
+                     <String fx:value="Romantic" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
+            <Line endX="250.0" endY="-1.52587890625E-5" layoutX="233.0" layoutY="107.0" startX="-100.0" />
+            <Line endX="250.0" endY="-1.52587890625E-5" layoutX="233.0" layoutY="201.0" startX="-100.0" />
+            <Line endX="250.0" endY="-1.52587890625E-5" layoutX="232.0" layoutY="256.0" startX="-100.0" />
+            <Button onAction="#onClickDone" layoutX="264.0" layoutY="343.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #0085FF; -fx-border-color: #0085FF;" text="DONE" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
