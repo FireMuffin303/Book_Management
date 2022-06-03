@@ -15,6 +15,7 @@ public class Guest extends AbstractUser{
 
     public void setBook(int id,Book book) {
          this.book.set(id,book) ;
+         new JsonHelper().write(this);
     }
 
 
