@@ -44,7 +44,7 @@ public class LoginController extends Controller {
         if(jsonHelper.readAccount(user) != null) {
             access.login(user, ps);
             if(access.getAccount() != null){
-                switchScene(event, "Main.fxml");
+                 switchScene(event,"Menu.fxml");
             }
             loginError.setText("Wrong Password");
         }else{

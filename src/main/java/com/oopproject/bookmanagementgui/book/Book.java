@@ -1,15 +1,18 @@
 package com.oopproject.bookmanagementgui.book;
 
-public class Book {
-    String name,desc,genre,storage;
-    int count;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 
-    public Book(String name,String desc, String genre, String storage,int count){
+public class Book {
+    String name,desc,genre;
+    Date addDate;
+
+    public Book(String name,String desc, String genre, LocalDate date){
         this.name = name;
         this.desc = desc;
         this.genre = genre;
-        this.storage = storage;
-        this.count = count;
+        this.addDate = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
     }
 
     public String getName() {
@@ -24,11 +27,5 @@ public class Book {
         return genre;
     }
 
-    public String getStorage() {
-        return storage;
-    }
-
-    public int getCount() {
-        return count;
-    }
+    public LocalDate getAddDate() {return addDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();}
 }

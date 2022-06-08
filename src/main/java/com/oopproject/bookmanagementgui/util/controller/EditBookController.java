@@ -1,15 +1,16 @@
 package com.oopproject.bookmanagementgui.util.controller;
 
 import com.oopproject.bookmanagementgui.book.Book;
-import com.oopproject.bookmanagementgui.user.Guest;
+import com.oopproject.bookmanagementgui.book.LibraryBook;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.util.StringConverter;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.chrono.Chronology;
 import java.util.ResourceBundle;
 
 public class EditBookController extends Controller {
@@ -19,9 +20,16 @@ public class EditBookController extends Controller {
     @FXML
     ComboBox<String> comboBox;
     @FXML
-    TextField bookDescTextField;
+    TextArea bookDescTextArea;
     @FXML
-    TextField bookStorageTextField;
+    DatePicker bookDatepicker = new DatePicker();
+
+
+    //Library
+    @FXML
+    TextField bookID;
+    @FXML
+    TextField bookStorageTF;
     @FXML
     Spinner<Integer> spinner;
 
@@ -31,14 +39,28 @@ public class EditBookController extends Controller {
         id = access.getBookIndex();
         this.bookNameTextField.setText(access.getAccount().getBook().get(id).getName());
         this.comboBox.setValue(access.getAccount().getBook().get(id).getGenre());
-        this.bookDescTextField.setText(access.getAccount().getBook().get(id).getDesc());
-        this.bookStorageTextField.setText(access.getAccount().getBook().get(id).getStorage());
-        this.spinner.getValueFactory().setValue(access.getAccount().getBook().get(id).getCount());
+        this.bookDescTextArea.setText(access.getAccount().getBook().get(id).getDesc());
+        this.bookDatepicker.setValue(access.getAccount().getBook().get(id).getAddDate());
+        if(access.getAccount().getType().equals("library_user")){
+            LibraryBook libraryBook = (LibraryBook) access.getAccount().getBook().get(id);
+            this.bookID.setText(libraryBook.getId());
+            this.bookStorageTF.setText(libraryBook.getStorage());
+            this.spinner.getValueFactory().setValue(libraryBook.getCount());
+        }
+
     }
 
     public void onClickDone(ActionEvent event) throws IOException {
-        Book book = new Book(bookNameTextField.getText(),bookDescTextField.getText(),comboBox.getValue(),bookStorageTextField.getText(),spinner.getValue());
-        access.getAccount().setBook(id,book);
+        switch (access.getAccount().getType()){
+            case "guest" ->{
+                Book book = new Book(bookNameTextField.getText(), bookDescTextArea.getText(),comboBox.getValue(),bookDatepicker.getValue());
+                access.getAccount().setBook(id,book);
+            }
+            case "library_user" ->{
+                LibraryBook libraryBook = new LibraryBook(bookNameTextField.getText(), bookDescTextArea.getText(),comboBox.getValue(),bookDatepicker.getValue(),bookStorageTF.getText(),spinner.getValue(),bookID.getText());
+                access.getAccount().setLibraryBook(id,libraryBook);
+            }
+        }
         switchScene(event,"book.fxml");
     }
 

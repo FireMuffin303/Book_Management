@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.oopproject.bookmanagementgui.util.controller.BookListController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="libraryBookTableView" layoutX="40.0" layoutY="93.0" prefHeight="285.0" prefWidth="520.0" style="-fx-border-color: #000000;">
+              <columns>
+                <TableColumn fx:id="libraryBookID" editable="false" prefWidth="68.00003051757812" style="-fx-background-color: #C4C4C4;" text="Book ID" />
+                <TableColumn fx:id="libraryBookName" prefWidth="248.0" style="-fx-background-color: #B5B5B5;" text="Book Name" />
+                  <TableColumn fx:id="libraryBookGenre" prefWidth="110.39996337890625" style="-fx-background-color: #C4C4C4;" text="Genre" />
+                  <TableColumn fx:id="libraryBookStorage" prefWidth="97.5999755859375" style="-fx-background-color: #B5B5B5;" text="Storage" />
+              </columns>
+            </TableView>
+             <Button layoutX="508.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="26.0" prefWidth="63.0" style="-fx-background-color: #FFFFFF00;" text="◀ Back" textAlignment="RIGHT">
+                 <cursor>
+                     <Cursor fx:constant="HAND" />
+                 </cursor>
+             </Button>
+            <Text layoutX="40.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Book" wrappingWidth="120.74847412109375">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <TextField fx:id="search" layoutX="40.0" layoutY="52.0" prefHeight="27.0" prefWidth="293.0" promptText="Book ID or Book Name" style="-fx-border-color: #000000;" />
+             <ComboBox fx:id="genreBox" layoutX="333.0" layoutY="52.0" prefHeight="27.0" prefWidth="152.0" promptText="- Genre -" style="-fx-background-color: #FFFFFF00; -fx-border-color: #000000;" >
+                 <items>
+                     <FXCollections fx:factory="observableArrayList">
+                         <String fx:value="Action" />
+                         <String fx:value="Adventure" />
+                         <String fx:value="Drama" />
+                         <String fx:value="Horror" />
+                         <String fx:value="Romantic" />
+                         <String fx:value="Education" />
+                     </FXCollections>
+                 </items>
+             </ComboBox>
+             <Button onAction="#onClickSearch" fx:id="searchButton" layoutX="484.0" layoutY="52.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF00; -fx-border-color: #000000;" text="Search" >
+                 <cursor>
+                     <Cursor fx:constant="HAND" />
+                 </cursor>
+             </Button>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

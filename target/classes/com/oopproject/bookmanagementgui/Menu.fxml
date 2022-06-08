@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.Cursor?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.oopproject.bookmanagementgui.util.controller.MenuController">
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0085FF;" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="WHITE" layoutX="66.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Button onAction="#onClickLogout" layoutX="67.0" layoutY="344.0" mnemonicParsing="false" style="-fx-background-color: #FFFFFF00;" text="◀ Log out" textFill="WHITE" >
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button onAction="#onClickBookList" fx:id="bookList" layoutX="90.0" layoutY="51.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" style="-fx-background-color: #C4C4C4;" text="List Book" >
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button onAction="#onClickAddBook" fx:id="addBook" layoutX="90.0" layoutY="123.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" style="-fx-background-color: #C4C4C4;" text="Add Book" >
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="button2" layoutX="90.0" layoutY="200.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" style="-fx-background-color: #C4C4C4;" text="List of book borrowers" >
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children></AnchorPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.Cursor?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.oopproject.bookmanagementgui.util.controller.EditBookController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="29.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDIT BOOK">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text layoutX="45.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book name" />
+            <Text layoutX="45.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre" />
+            <Text layoutX="45.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
+            <Text layoutX="45.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date added" wrappingWidth="72.861328125" />
+            <Text layoutX="45.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Count" />
+            <Button layoutX="506.0" layoutY="21.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: #FFFFFF00;" text="◀ Back" >
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <TextField fx:id="bookNameTextField" layoutX="131.0" layoutY="68.0" prefHeight="26.0" prefWidth="390.0" promptText="Book name" style="-fx-background-color: #FFFFFF00;" />
+            <Spinner fx:id="spinner" layoutX="131.0" layoutY="297.0" prefHeight="27.0" prefWidth="390.0" style="-fx-border-color: #000000; -fx-background-color: #FFFFFF00;">
+               <valueFactory>
+                  <SpinnerValueFactory.IntegerSpinnerValueFactory max="999" min="1" />
+               </valueFactory>
+            </Spinner>
+            <ComboBox fx:id="comboBox" layoutX="130.0" layoutY="145.0" prefHeight="28.0" prefWidth="390.0" promptText="-Select-" style="-fx-background-color: #FFFFFF00; -fx-border-color: #000000;">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Action" />
+                     <String fx:value="Adventure" />
+                     <String fx:value="Drama" />
+                     <String fx:value="Horror" />
+                     <String fx:value="Romantic" />
+                     <String fx:value="Education" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
+            <Line endX="287.0" endY="-1.52587890625E-5" layoutX="232.0" layoutY="91.0" startX="-100.0" />
+            <Button layoutX="478.0" layoutY="345.0" mnemonicParsing="false" onAction="#onClickDone" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #0085FF; -fx-border-color: #0085FF;" text="DONE" textFill="WHITE" >
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <DatePicker fx:id="bookDatepicker" layoutX="131.0" layoutY="260.0" prefHeight="27.0" prefWidth="210.0" style="-fx-border-color: #000000;" />
+            <TextArea fx:id="bookDescTextArea" layoutX="130.0" layoutY="183.0" prefHeight="66.0" prefWidth="390.0" promptText="Add description" style="-fx-border-color: #000000;" />
+            <Line endX="-8.79998779296875" endY="-1.52587890625E-5" layoutX="232.0" layoutY="131.0" startX="-100.0" />
+            <TextField fx:id="bookID" layoutX="131.0" layoutY="108.0" prefHeight="26.0" prefWidth="102.0" promptText="Book ID" style="-fx-background-color: #FFFFFF00;" />
+            <Text layoutX="45.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book ID" />
+            <Text layoutX="257.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Storage :" wrappingWidth="61.89178466796875" />
+            <TextField fx:id="bookStorageTF" layoutX="308.0" layoutY="108.0" prefHeight="26.0" prefWidth="212.0" promptText="Book Storage" style="-fx-background-color: #FFFFFF00;" />
+            <Line endX="111.0" endY="-1.52587890625E-5" layoutX="408.0" layoutY="131.0" startX="-100.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

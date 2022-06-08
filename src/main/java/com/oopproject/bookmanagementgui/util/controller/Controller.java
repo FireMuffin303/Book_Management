@@ -19,11 +19,8 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
     public static Access access = new Access();
 
-
     @FXML
     Label accountName = new Label();
-    @FXML
-    Label accountPassword = new Label();
     @FXML
     Label accountType = new Label();
 
@@ -39,22 +36,15 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         accountName.setText(access.getAccount().getUsername());
-        switch (access.getAccount().getType()){
-            case "guest":
-                accountType.setText("Guest");
-                break;
-            case "library_user":
-                accountType.setText("Library User");
-                break;
-            case "book_store_user":
-                accountType.setText("Book Store User");
-                break;
+        switch (access.getAccount().getType()) {
+            case "guest" -> accountType.setText("Guest");
+            case "library_user" -> accountType.setText("Library User");
         }
 
     }
 
     public void onClickBack(ActionEvent event) throws IOException {
-        switchScene(event,"Main.fxml");
+            switchScene(event,"Menu.fxml");
     }
 
 }

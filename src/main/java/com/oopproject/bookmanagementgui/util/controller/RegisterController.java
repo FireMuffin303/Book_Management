@@ -1,7 +1,6 @@
 package com.oopproject.bookmanagementgui.util.controller;
 
 import com.oopproject.bookmanagementgui.MainApplication;
-import com.oopproject.bookmanagementgui.user.BookStoreUser;
 import com.oopproject.bookmanagementgui.user.Guest;
 import com.oopproject.bookmanagementgui.user.LibraryUser;
 import com.oopproject.bookmanagementgui.util.JsonHelper;
@@ -51,23 +50,23 @@ public class RegisterController implements Initializable {
         String confirmPassword = this.cPassword.getText();
         String type = this.comboBox.getValue() ;
         if(password.equals(confirmPassword)){
-            switch (type){
-                case "Guest":
-                    Guest guest = new Guest(username,password);
-                    jsonHelper.write(guest);
-                    break;
-                case "Library User":
-                    LibraryUser libraryUser = new LibraryUser(username,password);
-                    jsonHelper.write(libraryUser);
-                    break;
-                case "Book Store User":
-                    BookStoreUser bookStoreUser = new BookStoreUser(username,password);
-                    jsonHelper.write(bookStoreUser);
-                    break;
+            if(type != null) {
+                switch (type) {
+                    case "Guest" -> {
+                        Guest guest = new Guest(username, password);
+                        jsonHelper.write(guest);
+                    }
+                    case "Library User" -> {
+                        LibraryUser libraryUser = new LibraryUser(username, password);
+                        jsonHelper.write(libraryUser);
+                    }
+                }
+                this.username.setText("");
+                this.password.setText("");
+                this.cPassword.setText("");
+            }else {
+                this.error.setText("Please choose account type.");
             }
-            this.username.setText("");
-            this.password.setText("");
-            this.cPassword.setText("");
         }else {
             this.error.setText("Password and Confirm Password are not the same.");
         }

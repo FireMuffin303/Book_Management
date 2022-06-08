@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.oopproject.bookmanagementgui.util.controller.AddBookController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="29.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD BOOK">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Button onAction="#onClickBack" layoutX="506.0" layoutY="21.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: #FFFFFF00;" text="◀ Back" >
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <TextField fx:id="bookNameTextField" layoutX ="132.0" layoutY="85.0" prefHeight="26.0" prefWidth="390.0" promptText="Book name" style="-fx-background-color: #FFFFFF00;" />
+            <Text layoutX="45.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book name" />
+            <Text layoutX="45.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre" />
+            <Text layoutX="45.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
+            <Text layoutX="45.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date added" wrappingWidth="72.861328125" />
+            <ComboBox fx:id="comboBox" layoutX="131.0" layoutY="134.0" prefHeight="28.0" prefWidth="390.0" promptText="-Select-" style="-fx-background-color: #FFFFFF00; -fx-border-color: #000000;">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Action" />
+                     <String fx:value="Adventure" />
+                     <String fx:value="Drama" />
+                     <String fx:value="Horror" />
+                     <String fx:value="Romantic" />
+                     <String fx:value="Education" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
+            <Line endX="287.0" endY="-1.52587890625E-5" layoutX="233.0" layoutY="107.0" startX="-100.0" />
+            <Button onAction="#addBook" layoutX="478.0" layoutY="345.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #0085FF; -fx-border-color: #0085FF;" text="ADD" textFill="WHITE" />
+            <DatePicker fx:id="datePicker" layoutX="131.0" layoutY="281.0" prefHeight="27.0" prefWidth="210.0" style="-fx-border-color: #000000;" />
+            <TextArea fx:id="bookDescTextArea" layoutX="131.0" layoutY="185.0" prefHeight="66.0" prefWidth="390.0" promptText="Add description" style="-fx-border-color: #000000;" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
