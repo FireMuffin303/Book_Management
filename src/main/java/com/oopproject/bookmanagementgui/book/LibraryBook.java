@@ -1,7 +1,5 @@
 package com.oopproject.bookmanagementgui.book;
 
-import com.oopproject.bookmanagementgui.util.JsonHelper;
-
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
@@ -19,6 +17,15 @@ public class LibraryBook extends Book{
         this.storage = storage;
     }
 
+    //Set
+    public void setBorrow(boolean borrow){
+        this.borrow = borrow;
+    }
+
+    public void setBorrowName(String borrowName){
+        this.borrowName = borrowName;
+    }
+
     public void setLendDate(LocalDate date){
         this.lendDate = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
     }
@@ -27,6 +34,15 @@ public class LibraryBook extends Book{
         this.returnDate = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
     }
 
+    public void setId(String bookId){
+        this.id =bookId;
+    }
+
+    public void setStorage(String bookStorage){
+        this.storage = bookStorage;
+    }
+
+    //Get
     public LocalDate getLendDate() {
         if(this.lendDate != null) {
             return lendDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -45,17 +61,8 @@ public class LibraryBook extends Book{
 
     public String getStorage(){return storage;}
 
-
-    public void setBorrowName(String borrowName){
-        this.borrowName = borrowName;
-    }
-
     public String getBorrowName() {
         return borrowName;
-    }
-
-    public void setBorrow(boolean borrow){
-        this.borrow = borrow;
     }
 
     public boolean isBorrow() {

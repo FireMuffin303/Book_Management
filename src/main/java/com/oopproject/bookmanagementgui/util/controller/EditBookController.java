@@ -2,15 +2,17 @@ package com.oopproject.bookmanagementgui.util.controller;
 
 import com.oopproject.bookmanagementgui.book.Book;
 import com.oopproject.bookmanagementgui.book.LibraryBook;
+import com.oopproject.bookmanagementgui.user.Guest;
+import com.oopproject.bookmanagementgui.user.LibraryUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.util.StringConverter;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.chrono.Chronology;
 import java.util.ResourceBundle;
 
 public class EditBookController extends Controller {
@@ -48,12 +50,24 @@ public class EditBookController extends Controller {
     public void onClickDone(ActionEvent event) throws IOException {
         switch (access.getAccount().getType()){
             case "guest" ->{
-                Book book = new Book(bookNameTextField.getText(), bookDescTextArea.getText(),comboBox.getValue(),bookDatepicker.getValue());
-                access.getAccount().setBook(id,book);
+                Guest guest = access.getAccount();
+                Book book = guest.getBook().get(id);
+                book.setName(this.bookNameTextField.getText());
+                book.setGenre(this.comboBox.getValue());
+                book.setDesc(this.bookDescTextArea.getText());
+                book.setAddDate(this.bookDatepicker.getValue());
+                guest.setBook(id,book);
             }
             case "library_user" ->{
-                LibraryBook libraryBook = new LibraryBook(bookNameTextField.getText(), bookDescTextArea.getText(),comboBox.getValue(),bookDatepicker.getValue(),bookStorageTF.getText(),bookID.getText());
-                access.getAccount().setLibraryBook(id,libraryBook);
+                LibraryUser libraryUser = access.getAccount();
+                LibraryBook libraryBook = libraryUser.getBook().get(id);
+                libraryBook.setName(this.bookNameTextField.getText());
+                libraryBook.setDesc(this.bookDescTextArea.getText());
+                libraryBook.setGenre(this.comboBox.getValue());
+                libraryBook.setAddDate(this.bookDatepicker.getValue());
+                libraryBook.setId(this.bookID.getText());
+                libraryBook.setStorage(this.bookStorageTF.getText());
+                libraryUser.setLibraryBook(id,libraryBook);
             }
         }
         switchScene(event,"book.fxml");

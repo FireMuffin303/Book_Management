@@ -10,15 +10,12 @@ public class LibraryUser extends AbstractUser{
     ArrayList<LibraryBook> libraryBook = new ArrayList<>();
     public LibraryUser(String username, String password) {
         super(username, password, "library_user");
-
     }
 
     public void setLibraryBooks(ArrayList<LibraryBook> libraryBook) {
         this.libraryBook = libraryBook;
     }
 
-
-    //--Abstract--
     public void setLibraryBook(int id, LibraryBook libraryBook) {
         this.libraryBook.set(id,libraryBook);
         new JsonHelper().write(this);
@@ -28,7 +25,6 @@ public class LibraryUser extends AbstractUser{
         return !libraryBook.isEmpty();
     }
 
-    @Override
     public void addBook(String name, String desc, String genre, LocalDate date, String storage,String id) {
         LibraryBook libraryBook = new LibraryBook(name,desc,genre,date,storage,id);
         this.libraryBook.add(libraryBook);

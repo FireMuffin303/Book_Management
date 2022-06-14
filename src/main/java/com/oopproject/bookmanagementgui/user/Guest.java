@@ -17,7 +17,6 @@ public class Guest extends AbstractUser{
         this.book = book ;
     }
 
-    //--Abstract--
     public void setBook(int id,Book book) {
          this.book.set(id,book);
          new JsonHelper().write(this);
@@ -32,7 +31,7 @@ public class Guest extends AbstractUser{
         return !book.isEmpty();
     }
 
-    @Override
+    //@Override
     public void addBook(String name, String desc, String genre , LocalDate date) {
         Book book = new Book(name,desc,genre,date);
         this.book.add(book);

@@ -15,6 +15,22 @@ public class Book {
         this.addDate = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public void setAddDate(LocalDate addDate) {
+        this.addDate = Date.from(addDate.atStartOfDay(ZoneId.systemDefault()).toInstant());;
+    }
+
     public String getName() {
         return name;
     }

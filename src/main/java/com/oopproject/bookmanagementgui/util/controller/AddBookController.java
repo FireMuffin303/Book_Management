@@ -1,11 +1,15 @@
 package com.oopproject.bookmanagementgui.util.controller;
 
+import com.oopproject.bookmanagementgui.user.Guest;
+import com.oopproject.bookmanagementgui.user.LibraryUser;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.chrono.Chronology;
 import java.util.ResourceBundle;
 
 public class AddBookController extends Controller{
@@ -21,8 +25,6 @@ public class AddBookController extends Controller{
     TextField bookStorageTF;
     @FXML
     TextField bookID;
-    @FXML
-    Spinner<Integer> spinner;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -30,25 +32,26 @@ public class AddBookController extends Controller{
         datePicker.setValue(LocalDate.now());
     }
 
-    public void addBook(){
+    public void onClickAddBook(){
         String bookName = this.bookNameTextField.getText();
         String bookGenre = this.comboBox.getValue();
         String bookDesc = this.bookDescTextArea.getText();
         LocalDate addedDate = this.datePicker.getValue();
         switch (access.getAccount().getType()){
-            case "guest" -> access.getAccount().addBook(bookName,bookDesc,bookGenre,addedDate);
+            case "guest" -> {
+                Guest guest = access.getAccount();
+                guest.addBook(bookName,bookDesc,bookGenre,addedDate);
+            }
             case "library_user" -> {
+                LibraryUser libraryUser = access.getAccount();
                 String storage = this.bookStorageTF.getText();
                 String id = this.bookID.getText();
-                access.getAccount().addBook(bookName,bookDesc,bookGenre,addedDate,storage,id);
+                libraryUser.addBook(bookName,bookDesc,bookGenre,addedDate,storage,id);
                 this.bookStorageTF.setText("");
                 this.bookID.setText("");
             }
         }
-
-
         this.bookNameTextField.setText("");
         this.bookDescTextArea.setText("");
-
     }
 }

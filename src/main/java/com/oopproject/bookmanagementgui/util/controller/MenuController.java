@@ -2,13 +2,7 @@ package com.oopproject.bookmanagementgui.util.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Cursor;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Paint;
 
 import java.io.IOException;
 import java.net.URL;

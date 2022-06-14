@@ -47,5 +47,4 @@ public class Controller implements Initializable {
     public void onClickBack(ActionEvent event) throws IOException {
             switchScene(event,"Menu.fxml");
     }
-
 }

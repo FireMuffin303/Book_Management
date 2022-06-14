@@ -1,9 +1,7 @@
 package com.oopproject.bookmanagementgui.user;
 
 import com.oopproject.bookmanagementgui.book.Book;
-import com.oopproject.bookmanagementgui.book.LibraryBook;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public abstract class AbstractUser {
@@ -30,20 +28,6 @@ public abstract class AbstractUser {
     public abstract ArrayList<? extends Book> getBook();
 
     public abstract boolean hasBook();
-
-    public  void addBook(String name, String desc, String genre, LocalDate date){
-
-    }
-
-    public void addBook(String name, String desc, String genre, LocalDate date,String storage,String id){
-
-    }
-
-    public void setBook(int id,Book book){
-
-    }
-
-    public void setLibraryBook(int id, LibraryBook libraryBook){}
 
     public abstract void removeBook(int i);
 

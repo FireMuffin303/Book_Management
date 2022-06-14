@@ -40,7 +40,7 @@
                </items>
             </ComboBox>
             <Line endX="287.0" endY="-1.52587890625E-5" layoutX="232.0" layoutY="91.0" startX="-100.0" />
-            <Button layoutX="478.0" layoutY="345.0" mnemonicParsing="false" onAction="#addBook" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #0085FF; -fx-border-color: #0085FF;" text="ADD" textFill="WHITE" >
+            <Button layoutX="478.0" layoutY="345.0" mnemonicParsing="false" onAction="#onClickAddBook" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #0085FF; -fx-border-color: #0085FF;" text="ADD" textFill="WHITE" >
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
