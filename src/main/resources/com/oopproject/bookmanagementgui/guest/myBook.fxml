@@ -20,7 +20,7 @@
             <TableView fx:id="bookTableView" layoutX="40.0" layoutY="93.0" prefHeight="285.0" prefWidth="520.0" style="-fx-border-color: #000000;">
               <columns>
                 <TableColumn fx:id="bookName" editable="false" prefWidth="251.20004272460938" style="-fx-background-color: #C4C4C4;" text="Book Name" />
-                <TableColumn fx:id="bookGenre" prefWidth="139.199951171875" style="-fx-background-color: #B5B5B5;" text="Genre" />
+                <TableColumn fx:id="bookGenre" prefWidth="139.199951171875" style="-fx-background-color: #B5B5B5;" text="Type" />
                   <TableColumn fx:id="bookDate" prefWidth="132.79998779296875" style="-fx-background-color: #C4C4C4;" text="Date" />
               </columns>
             </TableView>
@@ -35,7 +35,7 @@
                </font>
             </Text>
             <TextField fx:id="search" layoutX="40.0" layoutY="50.0" prefHeight="27.0" prefWidth="293.0" promptText="Book Name" style="-fx-border-color: #000000;" />
-             <ComboBox fx:id="genreBox" layoutX="332.0" layoutY="50.0" prefHeight="27.0" prefWidth="154.0" promptText="- Genre -" style="-fx-background-color: #FFFFFF00; -fx-border-color: #000000;" >
+             <ComboBox fx:id="genreBox" layoutX="332.0" layoutY="50.0" prefHeight="27.0" prefWidth="154.0" promptText="- Type -" style="-fx-background-color: #FFFFFF00; -fx-border-color: #000000;" >
                  <items>
                      <FXCollections fx:factory="observableArrayList">
                          <String fx:value="Action" />

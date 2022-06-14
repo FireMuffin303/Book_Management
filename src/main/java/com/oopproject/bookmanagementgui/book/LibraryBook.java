@@ -1,5 +1,7 @@
 package com.oopproject.bookmanagementgui.book;
 
+import com.oopproject.bookmanagementgui.util.JsonHelper;
+
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
@@ -7,15 +9,14 @@ import java.util.Date;
 public class LibraryBook extends Book{
 
     String id,storage;
-    int count;
     boolean borrow = false;
+    String borrowName;
     Date lendDate = null ,returnDate = null;
 
-    public LibraryBook(String name, String desc, String genre, LocalDate date , String storage, int count,String id) {
+    public LibraryBook(String name, String desc, String genre, LocalDate date , String storage,String id) {
         super(name, desc, genre, date);
         this.id = id;
         this.storage = storage;
-        this.count = count;
     }
 
     public void setLendDate(LocalDate date){
@@ -26,19 +27,38 @@ public class LibraryBook extends Book{
         this.returnDate = Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
     }
 
-    public Date getLendDate() {
-        return lendDate;
+    public LocalDate getLendDate() {
+        if(this.lendDate != null) {
+            return lendDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        }
+        return null;
     }
 
-    public Date getReturnDate() {
-        return returnDate;
+    public LocalDate getReturnDate() {
+        if(this.returnDate != null){
+            return returnDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        }
+        return null;
     }
 
     public String getId(){return id;}
 
     public String getStorage(){return storage;}
 
-    public int getCount() {
-        return count;
+
+    public void setBorrowName(String borrowName){
+        this.borrowName = borrowName;
+    }
+
+    public String getBorrowName() {
+        return borrowName;
+    }
+
+    public void setBorrow(boolean borrow){
+        this.borrow = borrow;
+    }
+
+    public boolean isBorrow() {
+        return borrow;
     }
 }

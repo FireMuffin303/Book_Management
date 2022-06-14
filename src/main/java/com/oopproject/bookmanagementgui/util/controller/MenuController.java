@@ -22,11 +22,6 @@ public class MenuController extends Controller {
     @FXML
     Button button2 = new Button();
 
-    @FXML
-    VBox vBox = new VBox();
-    @FXML
-    TextField searchBox = new TextField();
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -48,6 +43,10 @@ public class MenuController extends Controller {
             case "library_user" -> switchScene(event, "library/addBook_Library.fxml");
         }
 
+    }
+
+    public void onClickBorrowerList(ActionEvent event) throws IOException {
+        switchScene(event,"library/list_borrow.fxml");
     }
 
     public void onClickBookList(ActionEvent event) throws IOException{

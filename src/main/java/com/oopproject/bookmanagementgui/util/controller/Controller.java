@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
     public static Access access = new Access();
 
+    int id = access.getBookIndex();
     @FXML
     Label accountName = new Label();
     @FXML

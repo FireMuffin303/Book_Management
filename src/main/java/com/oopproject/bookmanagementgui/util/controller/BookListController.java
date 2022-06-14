@@ -3,6 +3,7 @@ package com.oopproject.bookmanagementgui.util.controller;
 import com.oopproject.bookmanagementgui.MainApplication;
 import com.oopproject.bookmanagementgui.book.Book;
 import com.oopproject.bookmanagementgui.book.LibraryBook;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -49,6 +50,8 @@ public class BookListController extends Controller {
     TableColumn<LibraryBook,String> libraryBookGenre;
     @FXML
     TableColumn<LibraryBook, String> libraryBookStorage;
+    @FXML
+    TableColumn<LibraryBook, String> libraryBookBorrows;
     private ObservableList<LibraryBook> libraryBooks;
 
     @Override
@@ -89,6 +92,15 @@ public class BookListController extends Controller {
                 this.libraryBookName.setCellValueFactory(new PropertyValueFactory<>("name"));
                 this.libraryBookGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
                 this.libraryBookStorage.setCellValueFactory(new PropertyValueFactory<>("storage"));
+                this.libraryBookBorrows.setCellValueFactory( data ->{
+                    //System.out.println(data.getValue().isBorrow());
+                   if(!data.getValue().isBorrow()){
+                        return new SimpleStringProperty("ไม่ถูกยืม");
+                   }else {
+                       return new SimpleStringProperty("กำลังถูกยืม");
+                   }
+                });
+
                 setLibraryBookTableView();
                 this.libraryBookTableView.setItems(libraryBooks);
                 this.libraryBookTableView.setRowFactory(tv ->{
@@ -150,7 +162,7 @@ public class BookListController extends Controller {
                 case "guest" ->this.search.setPromptText("Book Name");
                 case "library_user" -> this.search.setPromptText("Book ID or Book Name");
             }
-            this.genreBox.setPromptText("- Genre -");
+            this.genreBox.setPromptText("- Type -");
         }
     }
 

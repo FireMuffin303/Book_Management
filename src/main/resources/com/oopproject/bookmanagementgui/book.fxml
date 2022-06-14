@@ -28,7 +28,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="33.0" layoutY="66.0" text="Genre :">
+            <Label layoutX="33.0" layoutY="66.0" text="Type :">
                <font>
                   <Font size="16.0" />
                </font>
@@ -38,10 +38,10 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="35.0" layoutY="337.0" text="Add Date :" />
+            <Label layoutX="35.0" layoutY="337.0" text="Date :" />
             <Label fx:id="bookDate" layoutX="100.0" layoutY="337.0" text="date" />
             <Label layoutX="33.0" layoutY="113.0" text="Description" />
-            <Button fx:id="borrowBook" layoutX="274.0" layoutY="355.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #0085ff; -fx-border-color: #0085ff;" text="Borrow Book" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="borrowBook" onAction="#onClickBorrow" layoutX="274.0" layoutY="355.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #0085ff; -fx-border-color: #0085ff;" text="Borrow Book" textAlignment="CENTER" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

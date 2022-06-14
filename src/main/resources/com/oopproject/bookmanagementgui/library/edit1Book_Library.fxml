@@ -18,21 +18,15 @@
                </font>
             </Text>
             <Text layoutX="45.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book name" />
-            <Text layoutX="45.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre" />
+            <Text layoutX="45.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" />
             <Text layoutX="45.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
-            <Text layoutX="45.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date added" wrappingWidth="72.861328125" />
-            <Text layoutX="45.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Count" />
+            <Text layoutX="45.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="72.861328125" />
             <Button layoutX="506.0" layoutY="21.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: #FFFFFF00;" text="◀ Back" >
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
             <TextField fx:id="bookNameTextField" layoutX="131.0" layoutY="68.0" prefHeight="26.0" prefWidth="390.0" promptText="Book name" style="-fx-background-color: #FFFFFF00;" />
-            <Spinner fx:id="spinner" layoutX="131.0" layoutY="297.0" prefHeight="27.0" prefWidth="390.0" style="-fx-border-color: #000000; -fx-background-color: #FFFFFF00;">
-               <valueFactory>
-                  <SpinnerValueFactory.IntegerSpinnerValueFactory max="999" min="1" />
-               </valueFactory>
-            </Spinner>
             <ComboBox fx:id="comboBox" layoutX="130.0" layoutY="145.0" prefHeight="28.0" prefWidth="390.0" promptText="-Select-" style="-fx-background-color: #FFFFFF00; -fx-border-color: #000000;">
                <items>
                   <FXCollections fx:factory="observableArrayList">

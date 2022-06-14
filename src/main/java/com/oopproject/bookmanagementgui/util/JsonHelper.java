@@ -95,9 +95,9 @@ public class JsonHelper {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
                 LocalDate date = LocalDate.parse(element1.getAsJsonObject().get("addDate").getAsString(),formatter);
                 String bookStorage1 =element1.getAsJsonObject().get("storage").getAsString();
-                int bookCount1 =element1.getAsJsonObject().get("count").getAsInt();
                 String bookId = element1.getAsJsonObject().get("id").getAsString();
-                LibraryBook book1 = new LibraryBook(bookName1,bookDecs1,bookGenre1,date,bookStorage1,bookCount1,bookId);
+
+                LibraryBook book1 = new LibraryBook(bookName1,bookDecs1,bookGenre1,date,bookStorage1,bookId);
                 if (element1.getAsJsonObject().get("lendDate") != null) {
                     LocalDate date1 = LocalDate.parse(element1.getAsJsonObject().get("lendDate").getAsString(),formatter);
                     book1.setLendDate(date1);
@@ -106,6 +106,12 @@ public class JsonHelper {
                     LocalDate date1 = LocalDate.parse(element1.getAsJsonObject().get("returnDate").getAsString(),formatter);
                     book1.setReturnDate(date1);
                 }
+                book1.setBorrow(element1.getAsJsonObject().get("borrow").getAsBoolean());
+                if(element1.getAsJsonObject().get("borrowName") != null){
+                    book1.setBorrowName(element1.getAsJsonObject().get("borrowName").getAsString());
+                }
+
+
 
                 libraryBooks.add(book1);
             }

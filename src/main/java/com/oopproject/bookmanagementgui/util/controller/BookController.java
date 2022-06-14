@@ -1,5 +1,8 @@
 package com.oopproject.bookmanagementgui.util.controller;
 
+import com.oopproject.bookmanagementgui.book.LibraryBook;
+import com.oopproject.bookmanagementgui.user.LibraryUser;
+import com.oopproject.bookmanagementgui.util.JsonHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,7 +15,6 @@ import java.util.ResourceBundle;
 
 public class BookController extends Controller {
 
-    int id;
     @FXML
     Label bookName = new Label();
     @FXML
@@ -21,8 +23,6 @@ public class BookController extends Controller {
     Label bookGenre = new Label();
     @FXML
     Label bookStorage = new Label();
-    @FXML
-    Label bookCount = new Label();
     @FXML
     Label bookDate = new Label();
     @FXML
@@ -38,6 +38,14 @@ public class BookController extends Controller {
         bookDate.setText(access.getAccount().getBook().get(id).getAddDate().toString());
 
         borrowBook.setVisible(!access.getAccount().getType().equals("guest"));
+        if(access.getAccount() instanceof LibraryUser) {
+            LibraryUser libraryUser = access.getAccount();
+            if(libraryUser.getBook().get(id).isBorrow()){
+                borrowBook.setText("Edit Borrow");
+            }else {
+                borrowBook.setText("Borrow Book");
+            }
+        }
     }
 
 
@@ -54,6 +62,9 @@ public class BookController extends Controller {
 
     }
 
+    public void onClickBorrow(ActionEvent event) throws IOException {
+       switchScene(event,"library/add_borrowers.fxml");
+    }
 
     @Override
     public void onClickBack(ActionEvent event) throws IOException {

@@ -35,7 +35,7 @@ public abstract class AbstractUser {
 
     }
 
-    public void addBook(String name, String desc, String genre, LocalDate date,String storage,int count,String id){
+    public void addBook(String name, String desc, String genre, LocalDate date,String storage,String id){
 
     }
 

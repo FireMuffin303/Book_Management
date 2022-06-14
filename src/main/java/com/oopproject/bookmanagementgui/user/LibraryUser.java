@@ -29,8 +29,8 @@ public class LibraryUser extends AbstractUser{
     }
 
     @Override
-    public void addBook(String name, String desc, String genre, LocalDate date, String storage, int count,String id) {
-        LibraryBook libraryBook = new LibraryBook(name,desc,genre,date,storage,count,id);
+    public void addBook(String name, String desc, String genre, LocalDate date, String storage,String id) {
+        LibraryBook libraryBook = new LibraryBook(name,desc,genre,date,storage,id);
         this.libraryBook.add(libraryBook);
         new JsonHelper().write(this);
     }

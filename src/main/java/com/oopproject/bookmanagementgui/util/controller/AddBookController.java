@@ -39,9 +39,8 @@ public class AddBookController extends Controller{
             case "guest" -> access.getAccount().addBook(bookName,bookDesc,bookGenre,addedDate);
             case "library_user" -> {
                 String storage = this.bookStorageTF.getText();
-                int count = this.spinner.getValue();
                 String id = this.bookID.getText();
-                access.getAccount().addBook(bookName,bookDesc,bookGenre,addedDate,storage,count,id);
+                access.getAccount().addBook(bookName,bookDesc,bookGenre,addedDate,storage,id);
                 this.bookStorageTF.setText("");
                 this.bookID.setText("");
             }

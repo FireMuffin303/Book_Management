@@ -37,7 +37,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="button2" layoutX="90.0" layoutY="200.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" style="-fx-background-color: #C4C4C4;" text="List of book borrowers" >
+            <Button onAction="#onClickBorrowerList" fx:id="button2" layoutX="90.0" layoutY="200.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" style="-fx-background-color: #C4C4C4;" text="List of book borrowers" >
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

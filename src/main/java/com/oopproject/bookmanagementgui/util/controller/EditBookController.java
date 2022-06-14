@@ -14,7 +14,7 @@ import java.time.chrono.Chronology;
 import java.util.ResourceBundle;
 
 public class EditBookController extends Controller {
-    int id;
+    //int id;
     @FXML
     TextField bookNameTextField;
     @FXML
@@ -24,14 +24,11 @@ public class EditBookController extends Controller {
     @FXML
     DatePicker bookDatepicker = new DatePicker();
 
-
     //Library
     @FXML
     TextField bookID;
     @FXML
     TextField bookStorageTF;
-    @FXML
-    Spinner<Integer> spinner;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -45,9 +42,7 @@ public class EditBookController extends Controller {
             LibraryBook libraryBook = (LibraryBook) access.getAccount().getBook().get(id);
             this.bookID.setText(libraryBook.getId());
             this.bookStorageTF.setText(libraryBook.getStorage());
-            this.spinner.getValueFactory().setValue(libraryBook.getCount());
         }
-
     }
 
     public void onClickDone(ActionEvent event) throws IOException {
@@ -57,7 +52,7 @@ public class EditBookController extends Controller {
                 access.getAccount().setBook(id,book);
             }
             case "library_user" ->{
-                LibraryBook libraryBook = new LibraryBook(bookNameTextField.getText(), bookDescTextArea.getText(),comboBox.getValue(),bookDatepicker.getValue(),bookStorageTF.getText(),spinner.getValue(),bookID.getText());
+                LibraryBook libraryBook = new LibraryBook(bookNameTextField.getText(), bookDescTextArea.getText(),comboBox.getValue(),bookDatepicker.getValue(),bookStorageTF.getText(),bookID.getText());
                 access.getAccount().setLibraryBook(id,libraryBook);
             }
         }
