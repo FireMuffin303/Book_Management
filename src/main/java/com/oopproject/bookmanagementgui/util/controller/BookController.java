@@ -22,8 +22,6 @@ public class BookController extends Controller {
     @FXML
     Label bookGenre = new Label();
     @FXML
-    Label bookStorage = new Label();
-    @FXML
     Label bookDate = new Label();
     @FXML
     Button borrowBook = new Button();
@@ -69,7 +67,7 @@ public class BookController extends Controller {
     @Override
     public void onClickBack(ActionEvent event) throws IOException {
         switch (access.getAccount().getType()){
-            case "guest" -> switchScene(event,"guest/mybook.fxml");
+            case "guest" -> switchScene(event,"guest/myBook.fxml");
             case "library_user" -> switchScene(event,"library/list_book.fxml");
         }
     }

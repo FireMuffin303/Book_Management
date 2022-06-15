@@ -28,8 +28,6 @@ public class RegisterController implements Initializable {
     @FXML
     Label error;
 
-    JsonHelper jsonHelper = new JsonHelper();
-    @FXML
     public void switchLoginScene(ActionEvent event) throws IOException {
         Stage stage;
         Parent parent = FXMLLoader.load(MainApplication.class.getResource("Login.fxml"));
@@ -54,11 +52,11 @@ public class RegisterController implements Initializable {
                 switch (type) {
                     case "Guest" -> {
                         Guest guest = new Guest(username, password);
-                        jsonHelper.write(guest);
+                        new JsonHelper().write(guest);
                     }
                     case "Library User" -> {
                         LibraryUser libraryUser = new LibraryUser(username, password);
-                        jsonHelper.write(libraryUser);
+                        new JsonHelper().write(libraryUser);
                     }
                 }
                 this.username.setText("");

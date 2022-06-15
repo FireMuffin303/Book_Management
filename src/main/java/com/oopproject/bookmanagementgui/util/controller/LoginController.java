@@ -14,16 +14,10 @@ public class LoginController extends Controller {
 
     @FXML
     TextField userInput;
-
     @FXML
     TextField passwordInput;
-
-    @FXML
-    Label accountName = new Label();
     @FXML
     Label loginError = new Label();
-
-    JsonHelper jsonHelper = new JsonHelper();
 
     @FXML
     public void switchRegisterScene(ActionEvent event) throws IOException{
@@ -33,7 +27,7 @@ public class LoginController extends Controller {
     public void login(ActionEvent event) throws IOException {
         String user = userInput.getText();
         String ps = passwordInput.getText();
-        if(jsonHelper.readAccount(user) != null) {
+        if(new JsonHelper().readAccount(user) != null) {
             access.login(user, ps);
             if(access.getAccount() != null){
                  switchScene(event,"Menu.fxml");
@@ -47,8 +41,4 @@ public class LoginController extends Controller {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {}
 
-
-    public void setAccountName(String s){
-        accountName.setText(s);
-    }
 }

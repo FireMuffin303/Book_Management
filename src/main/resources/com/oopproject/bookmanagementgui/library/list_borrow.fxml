@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -9,7 +13,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.Cursor?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.oopproject.bookmanagementgui.util.controller.BorrowersListController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
@@ -22,18 +25,32 @@
                   <TableColumn fx:id="bookName" prefWidth="170.39996337890625" style="-fx-background-color: #B5B5B5;" text="Book Name" />
               </columns>
             </TableView>
-            <Text layoutX="40.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" wrappingWidth="38.35784912109375" />
-            <TextField layoutX="85.0" layoutY="50.0" prefHeight="27.0" prefWidth="474.0" promptText="Name" style="-fx-border-color: #000000;" />
-             <Button onAction="#onClickBack" layoutX="508.0" layoutY="14.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="63.0" style="-fx-background-color: #FFFFFF00;" text="◀ Back" textAlignment="RIGHT" >
+            <TextField fx:id="search" layoutX="174.0" layoutY="50.0" prefHeight="27.0" prefWidth="311.0" promptText="Name" style="-fx-border-color: #000000;" />
+             <Button layoutX="508.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickBack" prefHeight="26.0" prefWidth="63.0" style="-fx-background-color: #FFFFFF00;" text="◀ Back" textAlignment="RIGHT">
                  <cursor>
                      <Cursor fx:constant="HAND" />
                  </cursor>
              </Button>
-            <Text layoutX="40.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List Borowed" wrappingWidth="120.74847412109375">
+            <Text layoutX="40.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List Borrowed" wrappingWidth="120.74847412109375">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
+            <ComboBox fx:id="comboBox" layoutX="40.0" layoutY="50.0" prefHeight="27.0" prefWidth="134.0" promptText="-Search Type -" style="-fx-background-color: #FFFFFF00; -fx-border-color: #000000;">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Borrower Name" />
+                     <String fx:value="Loan Date" />
+                     <String fx:value="Book ID" />
+                     <String fx:value="Book Name" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
+            <Button fx:id="button" layoutX="483.0" layoutY="50.0" mnemonicParsing="false" onAction="#onClickSearch" prefHeight="27.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF00; -fx-border-color: #000000;" text="Search">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </AnchorPane>
    </center>

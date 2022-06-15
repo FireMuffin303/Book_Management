@@ -27,6 +27,7 @@ public class LibraryUser extends AbstractUser{
 
     public void addBook(String name, String desc, String genre, LocalDate date, String storage,String id) {
         LibraryBook libraryBook = new LibraryBook(name,desc,genre,date,storage,id);
+        //System.out.println(libraryBook.getName());
         this.libraryBook.add(libraryBook);
         new JsonHelper().write(this);
     }

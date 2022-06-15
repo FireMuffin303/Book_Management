@@ -3,6 +3,7 @@ package com.oopproject.bookmanagementgui.util.controller;
 import com.oopproject.bookmanagementgui.MainApplication;
 import com.oopproject.bookmanagementgui.book.Book;
 import com.oopproject.bookmanagementgui.book.LibraryBook;
+import com.oopproject.bookmanagementgui.user.LibraryUser;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,7 +35,7 @@ public class BookListController extends Controller {
     @FXML
     Button searchButton;
     @FXML
-    ComboBox genreBox;
+    ComboBox<String> genreBox;
     @FXML
     TextField search;
 
@@ -57,8 +58,8 @@ public class BookListController extends Controller {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         super.initialize(url, resourceBundle);
-        switch (access.getAccount().getType()){
-            case "guest":
+        switch (access.getAccount().getType()) {
+            case "guest" -> {
                 this.bookName.setCellValueFactory(new PropertyValueFactory<>("name"));
                 this.bookGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
                 this.bookDate.setCellValueFactory(new PropertyValueFactory<>("addDate"));
@@ -67,7 +68,7 @@ public class BookListController extends Controller {
                 this.bookTableView.setRowFactory(tv -> {
                     TableRow<Book> row = new TableRow<>();
                     row.setOnMouseClicked(event -> {
-                        if(event.getClickCount() == 2 && !row.isEmpty()){
+                        if (event.getClickCount() == 2 && !row.isEmpty()) {
                             Book book = row.getItem();
                             access.setBookIndex(access.getAccount().getBook().indexOf(book));
                             System.out.println(access.getBookIndex());
@@ -79,34 +80,33 @@ public class BookListController extends Controller {
                                 e.printStackTrace();
                             }
                             Scene scene = new Scene(parent);
-                            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                             stage.setScene(scene);
                             stage.show();
                         }
                     });
                     return row;
                 });
-                break;
-            case "library_user":
+            }
+            case "library_user" -> {
                 this.libraryBookID.setCellValueFactory(new PropertyValueFactory<>("id"));
                 this.libraryBookName.setCellValueFactory(new PropertyValueFactory<>("name"));
                 this.libraryBookGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
                 this.libraryBookStorage.setCellValueFactory(new PropertyValueFactory<>("storage"));
-                this.libraryBookBorrows.setCellValueFactory( data ->{
+                this.libraryBookBorrows.setCellValueFactory(data -> {
                     //System.out.println(data.getValue().isBorrow());
-                   if(!data.getValue().isBorrow()){
+                    if (!data.getValue().isBorrow()) {
                         return new SimpleStringProperty("ไม่ถูกยืม");
-                   }else {
-                       return new SimpleStringProperty("กำลังถูกยืม");
-                   }
+                    } else {
+                        return new SimpleStringProperty("กำลังถูกยืม");
+                    }
                 });
-
                 setLibraryBookTableView();
                 this.libraryBookTableView.setItems(libraryBooks);
-                this.libraryBookTableView.setRowFactory(tv ->{
+                this.libraryBookTableView.setRowFactory(tv -> {
                     TableRow<LibraryBook> libraryBookTableRow = new TableRow<>();
                     libraryBookTableRow.setOnMouseClicked(event -> {
-                        if(event.getClickCount() == 2 && !libraryBookTableRow.isEmpty()) {
+                        if (event.getClickCount() == 2 && !libraryBookTableRow.isEmpty()) {
                             LibraryBook book = libraryBookTableRow.getItem();
                             access.setBookIndex(access.getAccount().getBook().indexOf(book));
                             System.out.println(access.getBookIndex());
@@ -125,7 +125,7 @@ public class BookListController extends Controller {
                     });
                     return libraryBookTableRow;
                 });
-
+            }
         }
 
     }
@@ -222,7 +222,9 @@ public class BookListController extends Controller {
 
     private void setLibraryBookTableView(){
         if(access.getAccount().hasBook()) {
-            libraryBooks = (ObservableList<LibraryBook>) FXCollections.observableArrayList(access.getAccount().getBook());
+            LibraryUser libraryUser = access.getAccount();
+            ArrayList<LibraryBook> libraryBook = libraryUser.getBook();
+            libraryBooks = FXCollections.observableArrayList(libraryBook);
         }
     }
 }

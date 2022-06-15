@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class JsonHelper {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setDateFormat("dd-MM-yyyy");
         Gson gson = gsonBuilder.create();
-        try(Writer writer = new FileWriter(path+guest.getUsername()+".json")){
+        try(Writer writer = new FileWriter(path+guest.getUsername()+".json", StandardCharsets.UTF_8)){
             gson.toJson(guest,writer);
         }catch (Exception e){
             e.printStackTrace();
@@ -33,7 +34,7 @@ public class JsonHelper {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setDateFormat("dd-MM-yyyy");
         Gson gson = gsonBuilder.create();
-        try(Writer writer = new FileWriter(path+libraryUser.getUsername()+".json")){
+        try(Writer writer = new FileWriter(path+libraryUser.getUsername()+".json", StandardCharsets.UTF_8)){
             gson.toJson(libraryUser,writer);
         }catch (Exception e){
             e.printStackTrace();
@@ -45,7 +46,7 @@ public class JsonHelper {
         File file = new File(path+name+".json");
         try{
             if(file.exists()){
-                JsonReader reader = new JsonReader(new FileReader(file));
+                JsonReader reader = new JsonReader(new FileReader(file,StandardCharsets.UTF_8));
                 JsonElement element = JsonParser.parseReader(reader);
                 JsonObject object = element.getAsJsonObject();
 
