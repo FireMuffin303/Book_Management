@@ -27,17 +27,17 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button onAction="#onClickBookList" fx:id="bookList" layoutX="90.0" layoutY="51.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" style="-fx-background-color: #C4C4C4;" text="List Book" >
+            <Button onAction="#onClickBookList" fx:id="bookList" layoutX="90.0" layoutY="123.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" style="-fx-background-color: #C4C4C4;" text="List Book" >
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button onAction="#onClickAddBook" fx:id="addBook" layoutX="90.0" layoutY="123.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" style="-fx-background-color: #C4C4C4;" text="Add Book" >
+            <Button onAction="#onClickAddBook" fx:id="addBook" layoutX="90.0" layoutY="51.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" style="-fx-background-color: #C4C4C4;" text="Add Book" >
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button onAction="#onClickBorrowerList" fx:id="button2" layoutX="90.0" layoutY="200.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" style="-fx-background-color: #C4C4C4;" text="List of book borrowers" >
+            <Button onAction="#onClickBorrowerList" fx:id="button2" layoutX="90.0" layoutY="200.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="220.0" style="-fx-background-color: #C4C4C4;" text="List Name" >
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

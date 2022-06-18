@@ -1,14 +1,21 @@
 package com.oopproject.bookmanagementgui.util.controller;
 
+import com.oopproject.bookmanagementgui.MainApplication;
 import com.oopproject.bookmanagementgui.book.Book;
 import com.oopproject.bookmanagementgui.book.LibraryBook;
 import com.oopproject.bookmanagementgui.user.LibraryUser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -26,6 +33,8 @@ public class BorrowersListController extends Controller {
     @FXML
     TableColumn<LibraryBook, LocalDate> lendDate;
     @FXML
+    TableColumn<LibraryBook, LocalDate> returnDate;
+    @FXML
     TextField search;
     @FXML
     ComboBox<String> comboBox;
@@ -41,6 +50,7 @@ public class BorrowersListController extends Controller {
         this.bookId.setCellValueFactory(new PropertyValueFactory<>("id"));
         this.borrowerName.setCellValueFactory(new PropertyValueFactory<>("borrowName"));
         this.lendDate.setCellValueFactory(new PropertyValueFactory<>("lendDate"));
+        this.returnDate.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
         setTable();
         this.bookTableView.setItems(observableList);
     }

@@ -19,10 +19,11 @@
          <children>
             <TableView fx:id="bookTableView" layoutX="40.0" layoutY="93.0" prefHeight="285.0" prefWidth="520.0" style="-fx-border-color: #000000;">
               <columns>
-                <TableColumn fx:id="borrowerName" editable="false" prefWidth="181.60000610351562" style="-fx-background-color: #C4C4C4;" text="Borrower Name" />
-                <TableColumn fx:id="lendDate" prefWidth="87.199951171875" style="-fx-background-color: #B5B5B5;" text="Loan Date" />
                   <TableColumn fx:id="bookId" prefWidth="84.800048828125" style="-fx-background-color: #C4C4C4;" text="Book ID" />
-                  <TableColumn fx:id="bookName" prefWidth="170.39996337890625" style="-fx-background-color: #B5B5B5;" text="Book Name" />
+                  <TableColumn fx:id="bookName" prefWidth="145.5999755859375" style="-fx-background-color: #B5B5B5;" text="Book Name" />
+                <TableColumn fx:id="borrowerName" editable="false" prefWidth="165.60003662109375" style="-fx-background-color: #C4C4C4;" text="Book Borrower" />
+                <TableColumn fx:id="lendDate" prefWidth="128.800048828125" style="-fx-background-color: #B5B5B5;" text="Borrow Date" />
+                  <TableColumn fx:id="returnDate" prefWidth="128.800048828125" style="-fx-background-color: #B5B5B5;" text="Reutrn Date" />
               </columns>
             </TableView>
             <TextField fx:id="search" layoutX="174.0" layoutY="50.0" prefHeight="27.0" prefWidth="311.0" promptText="Name" style="-fx-border-color: #000000;" />

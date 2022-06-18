@@ -1,8 +1,6 @@
 package com.oopproject.bookmanagementgui.util.controller;
 
-import com.oopproject.bookmanagementgui.book.LibraryBook;
 import com.oopproject.bookmanagementgui.user.LibraryUser;
-import com.oopproject.bookmanagementgui.util.JsonHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -39,7 +37,7 @@ public class BookController extends Controller {
         if(access.getAccount() instanceof LibraryUser) {
             LibraryUser libraryUser = access.getAccount();
             if(libraryUser.getBook().get(id).isBorrow()){
-                borrowBook.setText("Edit Borrow");
+                borrowBook.setText("Return Borrow");
             }else {
                 borrowBook.setText("Borrow Book");
             }
